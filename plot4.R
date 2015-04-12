@@ -29,14 +29,23 @@ df$Global_reactive_power <- as.numeric(df$Global_reactive_power)
 
 #do plot
 png(file = "plot4.png")
-with(df,hist(Global_active_power,col = "red",xlab = c("Global Active Power (kilowatts)"),main = "Global Active Power"))
-
-
 par(mfrow = c(2, 2))
+
+with(df,plot(Time2,Global_active_power,type="line",ylab="Global Active Power (kilowatts)",xlab=" "))
+
+with(df,plot(Time2,Voltage,type="line",ylab="Voltage",xlab="datetime"))
+
 with(df, plot(Time2,Sub_metering_1,ylab="Energy Sub Metering", xlab=" ", type = "n"))
 with(df, lines(Time2, Sub_metering_1,))
 with(df, lines(Time2, Sub_metering_2, col = "red"))
 with(df, lines(Time2, Sub_metering_3, col = "blue"))
 legend("topright", pch = "-", col = c("black","red","blue"), legend = c("Sub_metering_1", "Sub_metering_2","Sub_metering_3"))
+
+
+with(df,plot(Time2,Global_reactive_power,type="line",ylab="Global Reactive Power",xlab="datetime"))
+
+dev.off()
+
+
 
 
