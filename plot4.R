@@ -31,7 +31,7 @@ df$Global_reactive_power <- as.numeric(df$Global_reactive_power)
 png(file = "plot4.png")
 par(mfrow = c(2, 2))
 
-with(df,plot(Time2,Global_active_power,type="line",ylab="Global Active Power (kilowatts)",xlab=" "))
+with(df,plot(Time2,Global_active_power,type="line",ylab="Global Active Power",xlab=" "))
 
 with(df,plot(Time2,Voltage,type="line",ylab="Voltage",xlab="datetime"))
 
