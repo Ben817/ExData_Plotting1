@@ -17,11 +17,18 @@ df$Time2 <-strptime(paste(df$Date,df$Time),format = "%d/%m/%Y %H:%M:%S ")
 gc()
 
 #Change from character to numeric
-df$Global_active_power <- as.numeric(df$Global_active_power)
+df$Sub_metering_1 <- as.numeric(df$Sub_metering_1)
+df$Sub_metering_2 <- as.numeric(df$Sub_metering_2)
+df$Sub_metering_3 <- as.numeric(df$Sub_metering_3)
 
-# Do plot
-with(df,plot(Time2,Global_active_power,type="line",ylab="Global Active Power (kilowatts)",xlab=" "))
-title(main = "Global Active Power")
-dev.copy(png, file = "plot2.png")
+#do plot
+png(file = "plot3.png")
+with(df, plot(Time2,Sub_metering_1,ylab="Energy Sub Metering", xlab=" ", type = "n"))
+with(df, lines(Time2, Sub_metering_1,))
+with(df, lines(Time2, Sub_metering_2, col = "red"))
+with(df, lines(Time2, Sub_metering_3, col = "blue"))
+legend("topright", pch = "-", col = c("black","red","blue"), legend = c("Sub_metering_1", "Sub_metering_2","Sub_metering_3"))
+
+
+#dev.copy(png, file = "plot3.png")
 dev.off()
-
