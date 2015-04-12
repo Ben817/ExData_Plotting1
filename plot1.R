@@ -16,8 +16,8 @@ gc()
 #Change from character to numeric
 df$Global_active_power <- as.numeric(df$Global_active_power)
 
-#
-with(df,hist(Global_active_power,col = "red",xlab = c("Global Active Power (kilowatts)")))
-title(main = "Global Active Power")
-dev.copy(png, file = "plot1.png")
+# Create plots
+png(file = "plot1.png")
+with(df,hist(Global_active_power,col = "red",xlab = c("Global Active Power (kilowatts)"),main = "Global Active Power"))
+
 dev.off()

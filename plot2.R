@@ -20,8 +20,8 @@ gc()
 df$Global_active_power <- as.numeric(df$Global_active_power)
 
 # Do plot
+png(file = "plot2.png")
 with(df,plot(Time2,Global_active_power,type="line",ylab="Global Active Power (kilowatts)",xlab=" "))
 title(main = "Global Active Power")
-dev.copy(png, file = "plot2.png")
 dev.off()
 
